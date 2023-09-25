@@ -1,8 +1,7 @@
 package com.example.springtest.DemonstracyaRaznicy.SBean;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Aspect
@@ -12,6 +11,25 @@ public class MyLOgingBeanClass {
     public void myLogingMetod(JoinPoint joinPoint) {
         System.out.println("Логирую действие " + joinPoint.getSignature().getName());
     }
+
+
+
+
+
+//    @AfterReturning("execution(* com.example.springtest.DemonstracyaRaznicy.SBean.*.*(..))")
+//    public void logAfterReturning(JoinPoint joinPoint) {
+//        System.out.println("Ведение журнала после возврата addStudent" + joinPoint.getSignature().getName());
+//    }
+//
+//    @AfterThrowing("execution(* com.example.springtest.DemonstracyaRaznicy.SBean.*.*(..))")
+//    public void logAfterThrowing(JoinPoint joinPoint) {
+//        System.out.println("Ведение журнала после addStudent " + joinPoint.getSignature().getName());
+//    }
+//
+//    @After("execution(* com.example.springtest.DemonstracyaRaznicy.SBean.*.*(..))")
+//    public void logAfter(JoinPoint joinPoint) {
+//        System.out.println("Вход в систему после " + joinPoint.getSignature().getName());
+//    }
 }
 
 
@@ -41,3 +59,13 @@ public class MyLOgingBeanClass {
 // будет выводиться сообщение в консоль, содержащее имя вызываемого метода.
 //Таким образом, путем объявления аспекта с соответствующим паттерном и методом, вы добавляете логирование перед каждым методом,
 // который соответствует паттерну, без необходимости изменения кода самого класса CollegeService.
+
+
+
+
+
+
+//@Before: Выполняется перед вызовом метода.
+//@AfterReturning: Выполняется после успешного выполнения метода и возврата результата (если он есть).
+//@AfterThrowing: Выполняется после выброса исключения в методе.
+//@After: Выполняется независимо от того, успешно ли выполнен метод или выброшено исключение.

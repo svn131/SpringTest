@@ -16,24 +16,32 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class SpringTest {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringTest.class, args);
+//        SpringApplication.run(SpringTest.class, args);
+//
+//
+//        // Создаем студента
+//        Student student1 = new Student();
+//        student1.setName("John");
+//        student1.setAge(20);
+//
+//        // Инициализируем контекст приложения с помощью AppConfig
+//        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+//
+//        // Получаем экземпляр CollegeService из контекста
+//        CollegeService collegeService = context.getBean(CollegeService.class);
+//
+//        // Вызываем методы CollegeService
+//        collegeService.addStudent(student1); // Выведет "Logging before addStudent"
+//        collegeService.removeStudent(student1); // Выведет "Logging before removeStudent"
+////////////////////////////////////////////////////////////////////////////////////////////////
 
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
 
-        // Создаем студента
-        Student student1 = new Student();
-        student1.setName("John");
-        student1.setAge(20);
+        MyBean3 myBean3 = context.getBean(MyBean3.class);
 
-        // Инициализируем контекст приложения с помощью AppConfig
-        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-
-        // Получаем экземпляр CollegeService из контекста
-        CollegeService collegeService = context.getBean(CollegeService.class);
-
-        // Вызываем методы CollegeService
-        collegeService.addStudent(student1); // Выведет "Logging before addStudent"
-        collegeService.removeStudent(student1); // Выведет "Logging before removeStudent"
-
+        // Вызывайте методы, чтобы увидеть каждый этап жизненного цикла
+        // В конце закройте контекст
+        context.close();
 
 
 
